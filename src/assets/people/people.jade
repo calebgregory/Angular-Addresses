@@ -1,0 +1,14 @@
+h1 Angular Addresses
+
+h2 search
+input(placeholder="Search", ng-model="query")
+
+h2 addresses
+.gallery
+  .row
+    .person(ng-repeat="person in main.people | objToArr | orderBy: 'name' | filter: query")
+      a(href="/#/people/{{person._id}}")
+        img(ng-src="{{person.photo}}")
+.row
+  a.btn.btn-primary(href="#/people/new") New Address
+div(ng-include="'assets/people/modal.html'" onload="main.onModalLoad()")

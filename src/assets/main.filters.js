@@ -1,9 +1,27 @@
-// Create a module
-// by module, we mean that we need to define
-// our angular app.
 angular
-  .module('angularAddresses', [])
-
+  .module('angularAddresses')
+  .filter('objToArr', function () {
+    return function(obj) {
+      if (obj) {
+        return Object
+          .keys(obj)
+          .map(function(key) {
+            obj[key]['_id'] = key;
+            return obj[key];
+        })
+      }
+    }
+  })
+  .filter('ransomcase', function() {
+    return function(string) {
+      return string
+        .split('')
+        .map(function(character, i) {
+          return (i % 2) ? character.toUpperCase() : character.toLowerCase();
+        })
+        .join('')
+    }
+  })
   .filter('tel', function () {
     return function (tel) {
       if (!tel) { return ''; }
@@ -47,29 +65,4 @@ angular
 
       return (country + " (" + city + ") " + number).trim();
     };
-  })
-
-  .controller('Main', function() {
-    var main = this;
-
-    main.people = [
-      {name: 'Dasher', twitter: '@dasher', phone: 1234567890},
-      {name: 'Dancer', twitter: '@dancer', phone: 1234567890},
-      {name: 'Blitzen', twitter: '@blitzen', phone: 1234567890},
-      {name: 'Comet', twitter: '@comet', phone: 1234567890},
-      {name: 'Cupid', twitter: '@cupid', phone: 1234567890},
-      {name: 'Prancer', twitter: '@prancer', phone: 1234567890}
-    ];
-
-    main.newPerson = {};
-
-    main.addAddress = function() {
-      main.people.push(main.newPerson);
-      main.newPerson = {};
-    }
-
-    main.removeAddress = function(person) {
-      var index = main.people.indexOf(person);
-      main.people.splice(index, 1);
-    };
-  })
+  });

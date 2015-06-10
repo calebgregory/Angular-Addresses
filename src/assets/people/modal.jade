@@ -1,0 +1,22 @@
+.modal.fade#modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h1 address
+      .modal-body
+        form(name="addressForm", novalidate)
+          .form-group(ng-class="{'has-success': addressForm.n.$dirty && main.person.name.length > 1, 'has-error': addressForm.n.$dirty && !main.person.name}")
+            label.control-label Name
+            input.form-control(name="n", type="text", placeholder="Santa Claus", ng-model="main.person.name", required)
+          .form-group(ng-class="{'has-success': addressForm.p.$dirty && main.person.phone, 'has-error': addressForm.p.$dirty && !main.person.phone}")
+            label.control-label Phone
+            input.form-control(name="p", type="tel", placeholder="6155551234", ng-model="main.person.phone", required)
+          .form-group(ng-class="{'has-success': addressForm.t.$dirty && main.person.twitter[0] === '@', 'has-error': addressForm.t.$dirty && !main.person.twitter}")
+            label.control-label Twitter
+            input.form-control(name="t", type="text", placeholder="@abc123", ng-model="main.person.twitter", required)
+          .form-group(ng-class="{'has-success': addressForm.i.$dirty && main.person.photo.slice(-4) === '.gif' || main.person.photo.slice(-4) === '.jpg' , 'has-error': addressForm.i.$dirty && !main.person.photo}")
+            label.control-label Photo
+            input.form-control(name="i", type="url", placeholder="http://google.com/img.jpg", ng-model="main.person.photo", required)
+      .modal-footer
+        button.btn.btn-danger(data-dismiss="modal") Close
+        button.btn.btn-primary(ng-click="addressForm.$valid && main.saveAddress()", ng-disabled="addressForm.$invalid") Save

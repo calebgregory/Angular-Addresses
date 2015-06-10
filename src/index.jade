@@ -6,32 +6,37 @@ html(lang="en-US", ng-app="angularAddresses")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title Angular Addresses
     link(rel="stylesheet", href="lib/build.css")
-    link(rel="stylesheet", href="css/main.css")
-  body(ng-controller="Main as main")
+    link(rel="stylesheet", href="assets/main.css")
+  body
     .container
-      form(name="newAddressForm", ng-submit="newAddressForm.$valid && main.addAddress()", novalidate)
-        label Name
-        input(type="text", placeholder="Santa Claus", ng-model="main.newPerson.name", required)
-        label Phone
-        input(type="tel", placeholder="6155551234", ng-model="main.newPerson.phone", required)
-        label Twitter
-        input(type="text", placeholder="@abc123", ng-model="main.newPerson.twitter", required)
-        input(type="submit", value="Add Person to Address Book", ng-disabled="newAddressForm.$invalid")
-      table
-        thead
-          th name
-          th twitter
-          th phone
-        tbody
-          tr(ng-repeat="person in main.people | orderBy: 'name' | filter: query")
-            td {{person.name}}
-            td
-              a(href="http://twitter.com/{{person.twitter", target="_blank")
-                {{person.twitter}}
-            td {{person.phone | tel}}
-            td
-              button(ng-click="main.removeAddress(person)") x
-      input(placeholder="Search", ng-model="query")
+      nav
+        ul
+          li: a(href="/#/") Home
+          li: a(href="/#/contact") Contact
+          li: a(href="/#/about") About
+          li: a(href="/#/people") People
+          li(ng-hide="auth"): a(href="/#/login") login
+          li(ng-show="auth"): a(href="/#/logout") logout
+
+      .app(ng-view)
 
     script(src="lib/build.js")
-    script(src="js/main.js")
+
+    script(src="assets/main.module.js")
+    script(src="assets/main.run.js")
+    script(src="assets/main.constants.js")
+    script(src="assets/main.filters.js")
+
+    script(src="assets/static/static.config.js")
+
+    script(src="assets/auth/auth.config.js")
+    script(src="assets/auth/login.controller.js")
+    script(src="assets/auth/logout.controller.js")
+    script(src="assets/auth/auth.factory.js")
+
+    script(src="assets/people/people.config.js")
+    script(src="assets/people/people.controller.js")
+    script(src="assets/people/edit.controller.js")
+    script(src="assets/people/new.controller.js")
+    script(src="assets/people/person.controller.js")
+    script(src="assets/people/person.factory.js")

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Dasher",
+        "twitter": "@dasher",
+        "phone": 1234567890,
+        "photo": "http://i.imgur.com/fsw9I8V.gif"
+    },
+    {
+        "name": "Dancer",
+        "twitter": "@dancer",
+        "phone": 1234567890,
+        "photo": "http://i.imgur.com/fsw9I8V.gif"
+    },
+    {
+        "name": "Blitzen",
+        "twitter": "@blitzen",
+        "phone": 1234567890,
+        "photo": "http://i.imgur.com/fsw9I8V.gif"
+    },
+    {
+        "name": "Comet",
+        "twitter": "@comet",
+        "phone": 1234567890,
+        "photo": "http://i.imgur.com/fsw9I8V.gif"
+    },
+    {
+        "name": "Cupid",
+        "twitter": "@cupid",
+        "phone": 1234567890,
+        "photo": "http://i.imgur.com/fsw9I8V.gif"
+    },
+    {
+        "name": "Prancer",
+        "twitter": "@prancer",
+        "phone": 1234567890,
+        "photo": "http://i.imgur.com/fsw9I8V.gif"
+    }
+]
