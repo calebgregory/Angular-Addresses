@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "grunt build && s3cmd sync public s3://eoe.calebgregory.co -P --delete-removed"
   },
   "repository": {
     "type": "git",

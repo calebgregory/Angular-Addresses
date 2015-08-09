@@ -6,5 +6,5 @@ angular
       if (nextRoute.$$route && nextRoute.$$route.private) {
         Auth.requireLogin();
       }
-    })
-  })
+    });
+  });
